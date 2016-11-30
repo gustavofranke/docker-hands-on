@@ -1,0 +1,64 @@
+docker 
+docker version
+docker run --help
+docker images
+https://hub.docker.com/ and search for busybox
+docker ps
+docker ps -a
+docker run busybox 
+docker run -i busybox
+docker run -it busybox # ctrl-p-q (quits without killing the container)
+docker run -it busybox
+docker run -itd busybox
+docker attach ecstatic_cray 
+docker ps --no-trunc=true
+docker stop furious_newton 
+docker kill furious_newton
+docker ps -aq
+docker rm `docker ps -aq`
+docker run --name gustavo1 -itd busybox
+docker attach gustavo1 
+docker run -itd busybox
+docker run --name gustavo2 -itd busybox
+docker run --name gustavo3 -itd busybox
+docker attach gustavo2
+docker attach gustavo3
+docker exec -ti gustavo3 bash
+docker history busybox
+docker search --help
+docker search -s=10 ubuntu
+docker search -s=10 --no-trunc=true ubuntu
+docker run -itd ubuntu
+docker images
+docker exec -it small_ptolemy bash
+docker stop `docker ps -aq`
+docker rm `docker ps -aq`
+docker run -itd ubuntu
+docker logs elated_albattani 
+docker run -itd ubuntu sleep 10 && watch docker ps
+docker run -itd --name job1 ubuntu /bin/sh -c "while true; do echo Docker Tech Talk; sleep 1; done"
+docker logs -h
+docker logs -ft job1 
+docker kill $(docker ps -q) && docker rm $(docker ps -aq)
+docker run -itd --name job2 ubuntu /bin/sh -c "while true; do echo Docker Tech Talk; sleep 1; done"
+docker stats job2
+docker top job2
+watch docker top job2 -ef
+docker exec -itd job2 sleep 20
+watch docker top job2 -ef
+docker inspect -h
+docker inspect job2
+docker inspect --format '{{.Name}} {{.State.Running}}' job2
+docker inspect --format '{{.Name}}' job2
+docker inspect --format '{{.Name.State.Running}}' job2
+docker inspect --format '{{.Name}} {{.State.Running}} {{.Config.Image}} {{.NetworkSettings.IPAddress}}' job2
+docker run -it -v /withvol1 busybox
+docker restart mad_keller 
+docker exec mad_keller ls /withvol1
+docker kill `docker ps -aq` && docker rm `docker ps -aq`
+docker run -it -v /withvol1 busybox
+docker stop `docker ps -aq` && docker rm `docker ps -aq`
+docker run -it -v /vagrant/shared:/shared ubuntu
+docker start kickass_pike 
+cd /vagrant/
+docker stop `docker ps -aq` && docker rm `docker ps -aq`
